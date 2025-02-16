@@ -1,25 +1,22 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import RecipeDetails from "./components/RecipeDetails";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Register from './components/Register';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import Menu from './components/Menu';
+import Favourites from './components/Favourites';
 
-const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/recipe-details/:id" element={<RecipeDetails />} />
+        <Route path='/' element={<Register />} />
+        <Route path='/l' element={<Login />} />
+        <Route path='/d' element={<Dashboard />} />
+        <Route path='/m' element={<Menu />} />
+        <Route path='/f' element={<Favourites />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-};
-
+}
+ 
 export default App;
